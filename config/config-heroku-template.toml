@@ -1,37 +1,24 @@
-[IRC]
+[slack]
+[slack.test]
+Token="xoxb-2037215048336-2021683593251-MTjUk35TY6recJ18Y53vWsbz"
+PrefixMessagesWithNick=true
 
-Enable=true
-Server="${IRC_SERVER}"
-Nick="${IRC_NICK}"
-UseTLS=${IRC_USE_TLS}
-UseSASL=${IRC_USE_SASL}
-SkipTLSVerify=${IRC_SKIP_TLS_VERIFY}
-NickServNick="${IRC_NICKSERV_NICK}"
-NickServPassword="${IRC_NICKSERV_PASSWORD}"
-RemoteNickFormat="${IRC_REMOTE_NICK_FORMAT}"
-IgnoreNicks="${IRC_IGNORE_NICKS}"
-
-[mattermost]
-
-Enable=true
-Server="${MATTERMOST_SERVER}"
-Team="${MATTERMOST_TEAM}"
-Login="${MATTERMOST_BOT_LOGIN}"
-Password="$MATTERMOST_BOT_PASSWORD}"
-NoTLS=${MATTERMOST_NO_TLS}
-SkipTLSVerify=${MATTERMOST_SKIP_TLS_VERIFY}
-ShowJoinPart=${MATTERMOST_SHOW_JOIN_PART}
-PrefixMessagesWithNick=${MATTERMOST_PREFIX_MSG_WITH_NICK}
-RemoteNickFormat="${MATTERMOST_REMOTE_NICK_FORMAT}"
-NickFormatter="${MATTERMOST_NICK_FORMATTER}"
-NicksPerRow=${MATTERMOST_NICKS_PER_ROW}
-IgnoreNicks="${MATTERMOST_IGNORE_NICKS}"
-
-[Channel "channel-1"]
-
-IRC="${IRC_CHANNEL}"
-mattermost="${MATTERMOST_CHANNEL}"
+[discord]
+[discord.test]
+Token="ODM3ODkyMzQ2ODcxNTQ1ODU2.YIzKDg.lxGetOSOhPHSZL0FqnQrK4EWVGo"
+Server="806425390343389194"
 
 [general]
+RemoteNickFormat="[{PROTOCOL}/{BRIDGE}] <{NICK}> "
 
-Plus=true
+[[gateway]]
+    name = "mygateway"
+    enable=true
+
+    [[gateway.inout]]
+    account = "discord.test"
+    channel="status-updates"
+
+    [[gateway.inout]]
+    account ="slack.test"
+    channel = "na"
